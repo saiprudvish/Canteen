@@ -43,4 +43,11 @@ export class UserService {
     return this.hc.get('/user/getitems')
  
 }
+
+addNewProduct(newProduct:any):Observable<any>{
+  //console.log("new product",newProduct)
+  return  this.hc.post("/user/add-product",newProduct)
+  
+}
+
 }

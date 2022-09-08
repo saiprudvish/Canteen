@@ -1,0 +1,64 @@
+<form #ref="ngForm" (ngSubmit)="onAddProduct(ref.value)" class="w-75 mx-auto mt-5">
+    <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="foodid"  name="foodid"
+            ngModel>
+        <label for="foodid">ProductId</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="foodname" placeholder="foodname" name="foodname" ngModel>
+        <label for="foodname">Foodname</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="foodfullname" placeholder="foodfullname" name="foodfullname" ngModel>
+        <label for="foodfullname">FoodFullname</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="fooddescription" placeholder="fooddescription" name="fooddescription" ngModel>
+        <label for="fooddescription">Food-description</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="foodcal" placeholder="foodcal" name="foodcal" ngModel>
+        <label for="foodcal">Calories (cal)</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="foodcount" placeholder="foodcount" name="foodcount" ngModel>
+        <label for="foodcount">Foodcount(1 always)</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="type" placeholder="type" name="type" ngModel>
+        <label for="type">Type - >(veg)/(Non veg)</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="foodtype" placeholder="foodtype" name="foodtype" ngModel>
+        <label for="foodtype">Fast food / Tiffins / Snacks</label>
+    </div>
+   
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="image" placeholder="image" name="image" ngModel>
+        <label for="image">Image URL</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="cost" placeholder="cost" name="cost" ngModel>
+        <label for="cost">Cost</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="preptime" placeholder="preptime" name="preptime" ngModel>
+        <label for="preptime">preparation time</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="foodday" placeholder="foodday" name="foodday" ngModel>
+        <label for="foodday">(Evening , Morning , Afternoon))</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="quantity" placeholder="quantity" name="quantity" ngModel>
+        <label for="quantity">Quantity</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="discount" placeholder="discount" name="discount" ngModel>
+        <label for="discount">discount</label>
+    </div>
+
+
+
+    <button class="btn btn-success" type="submit">Add product</button>
+</form>

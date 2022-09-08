@@ -7,7 +7,7 @@
      <h5 class="text-light me-4 text-light">{{usmail}}</h5>
 </div>
 
-    <h2 class="text-light">(My Bag  items)</h2>
+    <h2 class="text-light text-center">(   TOTAL ITEMS {{size}})</h2>
     <div class="row">
         <div class="mybag col-lg-12 col-xl-8 mb-3">
             <div class="row mb-2 mt-2" *ngFor="let p of products" >
@@ -30,6 +30,7 @@
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary add-btn mt-2" type="button"   (click)="additem(p.foodid)"  id="button-addon1"><i class="fa fa-plus"></i></button>
                         </div>
+              
                     </div>
                 </div>
 
@@ -45,17 +46,17 @@
                 </div>
                 <hr>
                 <div class="details mt-3 mb-3">
-                    <h6 class="ms-2">PRICE DETAILS ({{count}} items)</h6>
+                    <h6 class="ms-2 text-dark">PRICE DETAILS  items </h6>
                     <div class="text-start ms-2">
-                        <p>Total MRP<strong class="float-end">{{sum| currency:'INR'}}</strong></p>
-                        <p>Discount on MRP<strong class="float-end text-dark">{{-dis| currency:'INR'}}</strong></p>
-                        <p>Coupon Discount</p>
-                        <p>Convenience Fee<strong class="float-end">{{cfee| currency:'INR'}}</strong></p>
+                        <p>Total MRP<strong class="float-end">{{add | currency:'INR'}}</strong></p>
+                        <p>Discount on MRP<strong class="float-end text-dark">{{dis| currency:'INR'}}</strong></p>
+                        <p>coupon discount <strong class="float-end">{{con| currency:'INR'}}</strong></p>
+                        <p>Convenience Fee<strong class="float-end">{{con| currency:'INR'}}</strong></p>
                         <hr>
-                        <h6>Total Amount <strong class="float-end">{{total| currency:'INR'}}</strong></h6>
+                        <h6>Total Amount <strong class="float-end">{{add | currency:'INR'}}</strong></h6>
                         <hr>
                     </div>
-                    <div class="btn w-100 mt-2 mb-2"><a href="#" class="amount">PLACE ORDER</a></div>
+                    <div class="btn w-100 mt-2 mb-2"><a href="https://pages.razorpay.com/pl_K1vsGkJOAzbUJb/view"  target="_blank" class="amount">PLACE ORDER</a></div>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { NULL_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-home',
@@ -59,7 +60,7 @@ let username=user?.uid
      
 
 let newUserProductObj={username,productObject}
-  
+   if(username !=null){
    this.us.sendProductToUserCart(newUserProductObj).subscribe(
      res=>{
        alert(res['message'])
@@ -70,6 +71,10 @@ let newUserProductObj={username,productObject}
        alert("Something wrong in adding product to cart...")
      }
    )
+    }
+    else{
+      alert("Please Login first")
+    }
   
  }
 }

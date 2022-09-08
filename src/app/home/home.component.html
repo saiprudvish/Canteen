@@ -1,6 +1,6 @@
 <section class="main-content">
     <div class="container">
-        <h2 class="text-center text-uppercase text-light">BreakFast<i class="fa-solid fa-bowl-rice text-light ms-2"></i></h2>
+        <h2 class="text-center text-uppercase text-light">FOOD ITEMS <i class="fa-solid fa-bowl-rice text-light ms-2"></i></h2>
         <br>
         <br>
         <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3  g-4  mb-5">
@@ -31,11 +31,6 @@
                                 </div>
                                 <div class="food-card_order-count">
                                     <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <button class="btn btn-outline-secondary minus-btn" type="button" id="button-addon1"><i class="fa fa-minus"></i></button>
-                                        </div>
-                                        <input type="text" class="form-control input-manulator" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" value="0">
-                                        <div class="input-group-append">
                                             <button class="btn btn-outline-secondary add-btn" (click)="additem(i.foodid)" type="button" id="button-addon1"><i class="fa fa-plus"></i></button>
                                         </div>
                                     </div>
@@ -46,107 +41,9 @@
                 </div>
             </div>
         </div>
-        </div>
-        <div class="container">
-            <h1 class="text-center text-uppercase">Food Order Card</h1>
-            <br>
-            <br>
-            <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3  g-4  mb-5">
-                <div class="col" *ngFor="let i of fooditems">
-                    <div class="food-card food-card--vertical">
-                        <div class="food-card_img">
-                            <img src="{{i.image}}" alt="">
-                            <a href="#!"><i class="fa fa-heart"></i></a>
-                        </div>
-                        <div class="food-card_content">
-                            <div class="food-card_title-section">
-                                <a href="#!" class="food-card_title">{{i.foodname}}</a>
-                                <a href="#!" class="food-card_author">{{i.foodfullname}}</a>
-                            </div>
-                            <div class="food-card_bottom-section">
-                                <div class="space-between">
-                                    <div>
-                                        <span class="fa fa-fire"> {{i.foodcal}}</span> 
-                                    </div>
-                                    <div class="pull-right">
-                                        <span class="badge badge-success">{{i.type}}</span>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="space-between">
-                                    <div class="food-card_price">
-                                        <span>{{i.cost}}/-</span>
-                                    </div>
-                                    <div class="food-card_order-count">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <button class="btn btn-outline-secondary minus-btn" type="button" id="button-addon1"><i class="fa fa-minus" ></i></button>
-                                            </div>
-                                            <input type="text" class="form-control input-manulator" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" value="0">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary add-btn" type="button" id="button-addon1"><i class="fa fa-plus"   ></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
+     
      
             
 
 
-
-
-            <div class="container">
-                <h1 class="text-center text-uppercase">Food Order Card</h1>
-                <br>
-                <br>
-                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3  g-4  mb-5">
-                    <div class="col" *ngFor="let i of fooditems">
-                        <div class="food-card food-card--vertical">
-                            <div class="food-card_img">
-                                <img src="{{i.image}}" alt="">
-                                <a href="#!"><i class="fa fa-heart"></i></a>
-                            </div>
-                            <div class="food-card_content">
-                                <div class="food-card_title-section">
-                                    <a href="#!" class="food-card_title">{{i.foodname}}</a>
-                                    <a href="#!" class="food-card_author">{{i.foodfullname}}</a>
-                                </div>
-                                <div class="food-card_bottom-section">
-                                    <div class="space-between">
-                                        <div>
-                                            <span class="fa fa-fire"> {{i.foodcal}}</span> 
-                                        </div>
-                                        <div class="pull-right">
-                                            <span class="badge badge-success">{{i.type}}</span>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="space-between">
-                                        <div class="food-card_price">
-                                            <span>{{i.cost}}/-</span>
-                                        </div>
-                                        <div class="food-card_order-count">
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <button class="btn btn-outline-secondary minus-btn" type="button" id="button-addon1"><i class="fa fa-minus" ></i></button>
-                                                </div>
-                                                <input type="text" class="form-control input-manulator" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" value="0">
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-outline-secondary add-btn" type="button" id="button-addon1"><i class="fa fa-plus"   ></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
 </section>

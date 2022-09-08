@@ -14,7 +14,8 @@ const routes: Routes = [
     {path:"signup",component:SignupComponent},
     {path:'',redirectTo:"/register/signin",pathMatch:"full"}
   ]},
-  {path:'',redirectTo:"home",pathMatch:"full"}
+  {path:'',redirectTo:"/register/signin",pathMatch:"full"},
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
 ];
 
 @NgModule({

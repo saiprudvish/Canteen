@@ -18,7 +18,13 @@ export class LoginComponent implements OnInit {
 
 
   loginCheck=async(userCredential:any)=>{
-
+  console.log(userCredential)
+    if(userCredential.email=="admin"  &&  userCredential.password=="1234"){
+        this.router.navigateByUrl('/admin')
+        alert("Login success")
+    }
+else{
+     
     const firebaseConfig = {
       apiKey: "AIzaSyC3_sVw1vM2JJYHIZrmhW0eYOfz9aEOJKI",
       authDomain: "vnrcanteen-dc1ee.firebaseapp.com",
@@ -72,4 +78,5 @@ if (user !== null) {
       const errorMessage = error.message;
     });
   }
+}
 }

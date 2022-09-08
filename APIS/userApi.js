@@ -4,14 +4,39 @@ const exp=require("express")
 const expressErrorHandler = require("express-async-handler")
 const userApi=exp.Router();
 
+
+
+
+
+
 userApi.use(exp.json())
+
+
+
+userApi.post('/add-product', expressErrorHandler(async (req, res, next) => {
+
+  let itemsCollectionObj = req.app.get("itemsCollectionObj")
+  newquestion = req.body;
+  //console.log(newProduct)
+  //search
+  let qobj = await itemsCollectionObj.findOne({ foodid: newquestion.foodid});
+
+  if(qobj === null){
+     let qstionsObj= await itemsCollectionObj.insertOne(newquestion)
+     res.send({message:"new product added"})
+  }
+  else{
+        res.send({message:"product already existed with this id"})
+  }
+
+}))
 
 userApi.get("/getitems", expressErrorHandler(async (req, res, next) => {
 
   let itemsCollectionObj = req.app.get("itemsCollectionObj")
 
   let products = await itemsCollectionObj.find().sort({foodid:1}).toArray()
- 
+  console.log(products)
   res.send({ message: products })
 
 }))
@@ -19,11 +44,21 @@ userApi.get("/getitems", expressErrorHandler(async (req, res, next) => {
 //add to cart
 userApi.post("/add-to-cart", expressErrorHandler(async (req, res, next) => {
 
+
+  let itemsCollectionObj = req.app.get("itemsCollectionObj")
   let userCartCollectionObject = req.app.get("userCartCollectionObject")
   let newProdObject = req.body;
   //console.log(newProdObject)
   let idd=newProdObject.productObject.foodid;
   let userCartObj = await userCartCollectionObject.findOne({ username: newProdObject.username })
+  let val = await itemsCollectionObj.findOne({foodid:idd})
+  if(val.quantity===0){ 
+    res.send({message:"Product Out of stock"})
+}
+else{
+  let quant=(val.quantity) -1;
+    let reduceProduct = await itemsCollectionObj.updateOne({foodid:idd},{$set:{quantity:quant}})
+ // console.log(reduceProduct)
   if (userCartObj === null) {
           let products = [];
           products.push(newProdObject.productObject)
@@ -47,6 +82,7 @@ userCartObj.products.push(newProdObject.productObject)
          let latestCartObj = await userCartCollectionObject.findOne({ username: newProdObject.username })
          res.send({ message: "New product Added", latestCartObj: latestCartObj })       
   }
+}
 }))
 userApi.get("/getproducts/:username", expressErrorHandler(async (req, res, next) => {
 
@@ -66,11 +102,14 @@ userApi.get("/getproducts/:username", expressErrorHandler(async (req, res, next)
 
 
 userApi.post("/del-from-cart", expressErrorHandler(async (req, res, next) => {
-
+  let itemsCollectionObj = req.app.get("itemsCollectionObj")
   let userCartCollectionObject = req.app.get("userCartCollectionObject")
   let newProdObject = req.body;
   let j=req.body.username
   let  i= req.body.item;
+  let val = await itemsCollectionObj.findOne({foodid:i})
+  let quant=(val.quantity) + 1;
+  let reduceProduct = await itemsCollectionObj.updateOne({foodid:i},{$set:{quantity:quant}})
  let userCartObj = await userCartCollectionObject.findOne({ username: j })
  const index = userCartObj.products.findIndex(object => {
   return object.foodid === i;

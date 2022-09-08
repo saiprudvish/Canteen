@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { UserService } from '../user.service';
-
+import {Observable, of} from 'rxjs'
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
@@ -18,10 +18,11 @@ export class OrdersComponent implements OnInit {
   products:any;
   userObj:any;
   count:any;
+ size:any=0;
   sum:any;
-  total:any;
-  cfee=100;
-  dis=250;
+  dis:any=0;
+  con:any=0;
+  add:any;
   constructor(private us:UserService) { }
 
   ngOnInit(): void {
@@ -37,10 +38,11 @@ export class OrdersComponent implements OnInit {
       measurementId: "G-SZ11ZY2DL6"
     };
     
-    
+  
   this.us.getProducts().subscribe((userData:any)=>{
 
     this.fooditems=userData.message;
+
       // console.log(this.users)
  },
 err=>{
@@ -48,6 +50,7 @@ err=>{
 }
 
 )
+
 
 
     const app = initializeApp(firebaseConfig);
@@ -65,11 +68,28 @@ err=>{
        res=>{
            //console.log(res.message)
            this.products=res.message.products
-           this.ans=JSON.stringify(this.products)
-           console.log(this.ans)
+          //this.ans=JSON.stringify(this.products)
+         let siz = this.products.length
+         this.add=0;
+         for(let i=0; i<siz;i++){
+       
+          let obj=this.products[i];
+          //console.log(obj.cost)
+             this.size = this.size + (obj.foodcount)
+              this.add = this.add + (obj.foodcount * obj.cost);
+         }
+          //console.log(this.add)
+         //this.sum=this.add;
+        
        }
+   
      
      )
+     this.sum = this.add + this.con + this.dis;
+     
+     // console.log(this.add)
+   
+    
      
    
   }
@@ -114,6 +134,18 @@ let newUserProductObj={username,productObject}
      }
     
    )
+
+       
+  this.us.getProducts().subscribe((userData:any)=>{
+
+    this.fooditems=userData.message;
+      // console.log(this.users)
+ },
+err=>{
+  console.log("err in getting info data",err)
+}
+
+)
   
  }
 
@@ -156,6 +188,17 @@ let newUserProductObj={username,productObject}
        alert("Something wrong in adding product to cart...")
      }
    )
+       
+  this.us.getProducts().subscribe((userData:any)=>{
+
+    this.fooditems=userData.message;
+      // console.log(this.users)
+ },
+err=>{
+  console.log("err in getting info data",err)
+}
+
+)
     }  
 
 }
