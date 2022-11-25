@@ -31,15 +31,44 @@ userApi.post('/add-product', expressErrorHandler(async (req, res, next) => {
 
 }))
 
+userApi.post("/updateorders", expressErrorHandler(async (req, res, next) => {
+
+  let ordersCollectionObj = req.app.get("ordersCollectionObj")
+   let orderdetails=req.body
+   let k=orderdetails.ordereduser.slice(4,10)
+   await ordersCollectionObj.remove({orderId:k})
+   await ordersCollectionObj.insertOne({orderId:k,orderdetails})
+      
+   let obj={
+    date:orderdetails.ordereddate,
+    time:orderdetails.orderedtime,
+    userOrderid:k,
+    products:orderdetails.orderedfood,
+    cost:orderdetails.total
+   }
+    
+   //console.log(orders)
+    res.send({message: obj })
+   
+ 
+  //console.log(products)
+ 
+
+}))
+
+
+
+//update order status
 userApi.get("/getitems", expressErrorHandler(async (req, res, next) => {
 
   let itemsCollectionObj = req.app.get("itemsCollectionObj")
 
   let products = await itemsCollectionObj.find().sort({foodid:1}).toArray()
-  console.log(products)
+  //console.log(products)
   res.send({ message: products })
 
 }))
+
  
 //add to cart
 userApi.post("/add-to-cart", expressErrorHandler(async (req, res, next) => {
@@ -99,6 +128,22 @@ userApi.get("/getproducts/:username", expressErrorHandler(async (req, res, next)
   }
 
 }))
+
+
+
+userApi.get("/getorderdetails/:username", expressErrorHandler(async (req, res, next) => {
+
+  let ordersCollectionObj = req.app.get("ordersCollectionObj")
+   
+  let un = req.params.username;
+  let k=un.slice(4,10)
+  let userProdObj = await ordersCollectionObj.findOne({ orderId: k })
+  //console.log(userProdObj)
+  res.send({message:userProdObj})
+
+}))
+
+
 
 
 userApi.post("/del-from-cart", expressErrorHandler(async (req, res, next) => {

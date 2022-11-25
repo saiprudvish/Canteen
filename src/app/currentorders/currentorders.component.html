@@ -1,0 +1,59 @@
+
+<h1 class=" text-white  d-block float-end mt-5" >CURRENT ORDERS</h1>
+<br>
+
+
+<button class="text-dark text-center mx-5 mt-5"> Order Details</button>
+ <table class="table text-dark  mt-5 " >
+    <div class="background w-75 d-block float-end">
+     
+    <table class="table text-center table-striped text-white text-center p-5  backc" >
+        <thead>
+            <tr>
+                <th>ORDERID</th>
+                <th>TOTAL</th>
+                <th>ORDERED DATE</th>
+                <th>ORDERED TIME</th>
+                <th>STATUS</th>
+            </tr>
+        </thead>
+        <tbody>     
+            <tr>
+            <td class="text-white">{{orderid}}</td>
+            <td class="text-white">{{cost}}</td>
+            <td class="text-white">{{date}}</td>
+            <td class="text-white">{{time}}</td>
+            <td class="text-white">COOKING</td>
+            </tr> 
+            </tbody>
+            </table>
+        
+            </div>
+</table> 
+
+<br>
+<button class="text-dark text-center mx-5 mt-5"> More Details</button>
+ <table class="table text-dark  mt-5 " >
+    <div class="background w-75 d-block float-end">
+     
+    <table class="table text-center table-striped text-white text-center  p-5 backc" >
+        <thead>
+            <tr class="text-white">
+                <th class="text-white">FoodName</th>
+                <th class="text-white">FoodId</th>
+                <th class="text-white">Price</th>
+                <th class="text-white">Quantity</th>
+            </tr>
+        </thead>
+        <tbody>      
+            </tbody>
+            <tr *ngFor="let p of orders">
+                <td class="text-white">{{p.foodfullname}}</td>
+                <td class="text-white">{{p.foodid}}</td>
+                <td class="text-white">{{p.cost}}</td>
+                <td class="text-white">{{p.foodcount}}</td>
+            </tr>
+            </table>
+        
+            </div>
+</table> 

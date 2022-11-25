@@ -12,7 +12,13 @@
   
  
 } */
-
+.container1{
+  margin-bottom: 300px;
+}
+.container2{
+  margin-top: 50px;
+  margin-right: 200px;
+}
 .nav-link{
     width:100%;
     padding: 10px 30px;

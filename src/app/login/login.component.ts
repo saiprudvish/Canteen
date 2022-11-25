@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
 
   loginCheck=async(userCredential:any)=>{
-  console.log(userCredential)
+  //console.log(userCredential)
     if(userCredential.email=="admin"  &&  userCredential.password=="1234"){
         this.router.navigateByUrl('/admin')
         alert("Login success")

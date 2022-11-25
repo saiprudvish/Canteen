@@ -42,7 +42,10 @@
             <div class="border border-2 p-2">
                 <div class="coupon">
                     <h6 class="ms-2">COUPONS</h6>
-                    <p class="ms-2"><i class="fas fa-tag me-2" style="font-size: 20px;"></i>Apply coupons<a class="check text-end float-end me-2 ">APPLY</a></p>
+                    <input type="text"  placeholder="valid coupon" name="coupon" [(ngModel)]="coupon" ngModel>
+                    <p class="ms-2"><i class="fas fa-tag  mt-3"  style="font-size: 20px;"></i>Apply coupons <button
+                        class="check text-end float-end me-2 " (click)="Applycoupon()" >APPLY</button> </p>
+                   
                 </div>
                 <hr>
                 <div class="details mt-3 mb-3">
@@ -51,12 +54,13 @@
                         <p>Total MRP<strong class="float-end">{{add | currency:'INR'}}</strong></p>
                         <p>Discount on MRP<strong class="float-end text-dark">{{dis| currency:'INR'}}</strong></p>
                         <p>coupon discount <strong class="float-end">{{con| currency:'INR'}}</strong></p>
-                        <p>Convenience Fee<strong class="float-end">{{con| currency:'INR'}}</strong></p>
                         <hr>
-                        <h6>Total Amount <strong class="float-end">{{add | currency:'INR'}}</strong></h6>
+                        <h6>Total Amount <strong class="float-end">{{ sum | currency:'INR'}}</strong></h6>
                         <hr>
                     </div>
-                    <div class="btn w-100 mt-2 mb-2"><a href="https://pages.razorpay.com/pl_K1vsGkJOAzbUJb/view"  target="_blank" class="amount">PLACE ORDER</a></div>
+                    <!-- <div class="btn w-100 mt-2 mb-2"><a href="https://pages.razorpay.com/pl_K1vsGkJOAzbUJb/view" 
+                         target="_blank" class="amount" (click)="placeorder()"  >PLACE ORDER</a></div> -->
+                         <button class="btn w-100 mt-2 mb-2 check1" (click)="placeorder()"><strong>PLACE ORDER</strong></button> 
                 </div>
             </div>
         </div>

@@ -21,6 +21,7 @@
     padding: 10px 30px;
     cursor:pointer;
     display:block;
+    font-weight: bold;
     margin:auto;
     background: linear-gradient(to right,#ff105f,#ffad06);
     border:1px solid #ff105f;

@@ -22,8 +22,14 @@ export class UserService {
   getCurrentAuth(userAuth:any){
  this.AuthData=userAuth;
   }
+  updateuserorders(ordersdetailsObj:any):Observable<any>{
 
- 
+    return this.hc.post("/user/updateorders",ordersdetailsObj)
+  }
+  userordersdetails(username:any):Observable<any>{
+
+    return this.hc.get(`/user/getorderdetails/${username}`)
+  }
   sendProductToUserCart(userProductObj:any):Observable<any>{
 
     return this.hc.post("/user/add-to-cart",userProductObj)

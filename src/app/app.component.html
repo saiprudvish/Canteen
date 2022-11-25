@@ -12,12 +12,15 @@
            
             <a class="nav-link text-light "  routerLink='home' routerLinkActive="active">Home</a>
           </li>
-
           <li class="nav-item"  *ngIf="us.userLoginStatus">
            
-            <a class="nav-link text-light"  routerLink='orders' routerLinkActive="active">Myorders</a>
+            <a class="nav-link text-light"  routerLink='corders' routerLinkActive="active">Current Orders</a>
           </li>
-         
+          <li class="nav-item"  *ngIf="us.userLoginStatus">
+           
+            <a class="nav-link text-light"  routerLink='orders' routerLinkActive="active"><i class="fa fa-shopping-cart " aria-hidden="true"></i></a>
+          </li>
+       
           <li class="nav-item"  *ngIf="!us.userLoginStatus">
            
             <a class="nav-link text-light"  routerLink='register' routerLinkActive="active">Register</a>

@@ -30,9 +30,12 @@ mc.connect(databaseUrl, {useNewUrlParser:true,  useUnifiedTopology: true}, (err,
         let databaseObj = client.db("vnrcanteen")
         //create collection object
     let  itemsCollectionObj= databaseObj.collection("itemscollection")
+    let  ordersCollectionObj= databaseObj.collection("userorderscollection")
     let  userCartCollectionObject=databaseObj.collection("usercartcollection")
+  
     app.set("userCartCollectionObject",userCartCollectionObject)
-
+    
+    app.set("ordersCollectionObj",ordersCollectionObj)
     app.set("itemsCollectionObj",itemsCollectionObj)
 
 
